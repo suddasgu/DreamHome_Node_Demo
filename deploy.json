@@ -19,21 +19,39 @@
         }       
     },
     "required": [
-       "selected-space"     
+       "selected-space",
+       "selected-region",
+       "selected-organization"        
     ],
     "form": [
        {
           "type": "validator",
           "url": "/devops/setup/bm-helper/helper.html"
        },
-        {
+          {
             "type": "table",
-            "columnCount": 1,
-            "widths": ["100%"],
+            "columnCount": 3,
+            "widths": ["33%", "33%", "33%"],
             "items": [
                 {
                   "type": "label",
+                  "title": "Region"
+                },
+                {
+                  "type": "label",
+                  "title": "Organization"
+                },
+                {
+                  "type": "label",
                   "title": "Space"
+                },
+                {
+                  "type": "select",
+                  "key": "selected-region"
+                },
+                {
+                  "type": "select",
+                  "key": "selected-organization"
                 },
                 {
                   "type": "select",
@@ -42,5 +60,6 @@
                 }
             ]
         }
+
     ]
 }
