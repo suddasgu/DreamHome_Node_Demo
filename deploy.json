@@ -1,0 +1,166 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "MicroServices Deploy Stage",
+    "description": "",
+    "longDescription": "The Delivery Pipeline for Devops Services allows you to automate your continuous deployment setup. To avoid conflicts, make sure to use unique application names. We recommend to use a common prefix like your name or initials.",
+    "type": "object",
+    "properties": {
+        "selected-region": {
+            "description": "The bluemix region",
+            "type": "string"
+        },
+        "selected-organization": {
+            "description": "The bluemix org",
+            "type": "string"
+        },
+       "selected-space": {
+            "description": "The bluemix space",
+            "type": "string"
+        },
+        "workorder-branch-name": {
+            "description": "workorder branch name",
+            "type": "string"
+        },
+        "workorder-app-name": {
+            "description": "workorder app name",
+            "type": "string"
+        },
+        "permission-branch-name": {
+            "description": "permission batch name",
+            "type": "string"
+        },
+        "permission-app-name": {
+            "description": "Permission app name",
+            "type": "string"
+        },
+        "eaportal-branch-name": {
+          "description": "EAPortal UI branch name to deploy",
+          "type": "string"
+        },
+        "eaportal-app-name": {
+          "description": "EAPortal UI app name to deploy",
+          "type": "string"
+        },
+        "masterdata-branch-name": {
+          "description": "Master data branch name to deploy",
+          "type": "string"
+        },
+        "masterdata-app-name": {
+          "description": "Master data app name to deploy",
+          "type": "string"
+        },
+         "demandmangement-branch-name": {
+          "description": "Demand management  branch name to deploy",
+          "type": "string"
+        },
+        "demandmangement-app-name": {
+          "description": "Demand management api name to deploy",
+          "type": "string"
+        }
+    },
+    "required": [
+      "workorder-branch-name",
+      "selected-space",  
+      "workorder-app-name",
+      "permission-branch-name",
+      "permission-app-name",
+      "eaportal-branch-name",
+      "eaportal-app-name",
+      "masterdata-branch-name",
+      "masterdata-app-name",
+      "demandmangement-branch-name",
+      "demandmangement-app-name"
+    ],
+    "form": [
+       {
+          "type": "validator",
+          "url": "/devops/setup/bm-helper/helper.html"
+       },
+         {
+          "type": "text",
+          "readonly": false,
+          "title": "Work Order App Name",
+          "key": "workorder-app-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "Permission App Name",
+          "key": "permission-app-name"
+        },
+         
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "EAPortal App Name",
+          "key": "eaportal-app-name"
+        },
+         {
+          "type": "text",
+          "readonly": false,
+          "title": "Master Data app name",
+          "key": "masterdata-app-name"
+        },
+         {
+          "type": "text",
+          "readonly": false,
+          "title": "Deman Management App Name",
+          "key": "demandmangement-app-name"
+        },
+        {
+            "type": "table",
+            "columnCount": 1,
+            "widths": ["100%"],
+            "items": [
+                {
+                  "type": "label",
+                  "title": "Space"
+                },
+                {
+                  "type": "select",
+                  "key": "selected-space",
+                  "readonly": false
+                }
+            ]
+        },
+        {
+ 		      "type": "table",
+ 		      "columnCount": 1,
+ 		      "widths": ["100%"],
+ 		      "items": [{
+ 			      "type": "label",
+            "title": "Enter the names of the branches to deploy. The default and most stable branch is master. To deploy the ongoing developments, you can change the branch names to dev."
+ 		      }]
+ 	      },
+       {
+          "type": "text",
+          "readonly": false,
+          "title": "Work Order Branch Name",
+          "key": "workorder-branch-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "Permission Branch Name",
+          "key": "permission-branch-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "EAPortal Branch Name",
+          "key": "eaportal-branch-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "MasterData Branch Name",
+          "key": "masterdata-branch-name"
+        },
+        {
+          "type": "text",
+          "readonly": false,
+          "title": "Demand Management Branch Name",
+          "key": "demandmangement-branch-name"
+        }
+    ]
+}
