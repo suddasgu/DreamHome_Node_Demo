@@ -1,0 +1,153 @@
+---
+name: "EAmanagement Portal Toolchain"
+description: "With this cloud-native toolchain, you use a sample to create an online insurance store that consists of three microservices: a Catalog API, an Orders API, and a UI that calls both of the APIs. The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, functional testing, issue tracking, online editing.\n\nTo get started, click **Create**."
+required:
+ - deploy
+
+# Github repos
+workorder-api-repo:
+  service_id: hostedgit
+  parameters:
+    repo_name: "workorder-api-git"
+    repo_url: "https://git.ng.bluemix.net/suddasgu/WorkOrderManagement"
+    type: clone
+    has_issues: true
+
+permission-api-repo:
+  service_id: hostedgit
+  parameters:
+    repo_name: "permission-api-git"
+    repo_url: "https://git.ng.bluemix.net/suddasgu/PermissionManagement"
+    type: clone
+    has_issues: true
+
+eaportal-ui-repo:
+  service_id: hostedgit
+  parameters:
+    repo_name: "eaportal-ui-git"
+    repo_url: "https://git.ng.bluemix.net/angsdey2/EAManagementPortal"
+    type: clone
+    has_issues: true
+
+masterdata-api-repo:
+  service_id: hostedgit
+  parameters:
+    repo_name: "masterdata-api-git"
+    repo_url: "https://git.ng.bluemix.net/suddasgu/MasterDataManagement"
+    type: clone
+    has_issues: true
+    
+demandmangement-api-repo:
+  service_id: hostedgit
+  parameters:
+    repo_name: "demandmangement-api-git"
+    repo_url: "https://git.ng.bluemix.net/pandnira/DemandManagement"
+    type: clone
+    has_issues: true
+
+# Pipelines
+workorder-build:
+  service_id: pipeline
+  parameters:
+    name: "workorder ({{deploy.parameters.workorder-branch-name}})"
+    configuration:
+      content: $file(ui.pipeline.yml)
+      env:
+        REPO: "workorder-api-repo"
+        CF_APP_NAME: "{{deploy.parameters.workorder-app-name}}"
+        REPO_BRANCH: "{{deploy.parameters.workorder-branch-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "EA Dev Factory Mgmt Portal"
+        REGION_ID: "US South"
+      execute: true
+    services: ["workorder-api-repo"]
+  hidden: [form, description]
+
+permission-api-build:
+  service_id: pipeline
+  parameters:
+    name: "permission ({{deploy.parameters.permission-branch-name}})"
+    configuration:
+      content: $file(catalog-api.pipeline.yml)
+      env:
+        REPO: "permission-api-repo"
+        REPO_BRANCH: "{{deploy.parameters.permission-branch-name}}"
+        CF_APP_NAME: "{{deploy.parameters.permission-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "EA Dev Factory Mgmt Portal"
+        REGION_ID: "US South"
+      execute: true
+    services: ["permission-api-repo"]
+  hidden: [form, description]
+
+eaportal-ui-build:
+  service_id: pipeline
+  parameters:
+    name: "eaportal ({{deploy.parameters.eaportal-branch-name}})"
+    configuration:
+      content: $file(order-api.pipeline.yml)
+      env:
+        REPO: "eaportal-ui-repo"
+        REPO_BRANCH: "{{deploy.parameters.eaportal-branch-name}}"
+        CF_APP_NAME: "{{deploy.parameters.eaportal-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "EA Dev Factory Mgmt Portal"
+        REGION_ID: "US South"
+      execute: true
+    services: ["eaportal-ui-repo"]
+  hidden: [form, description]
+
+masterdata-api-build:
+  service_id: pipeline
+  parameters:
+    name: "masterdata ({{deploy.parameters.dashboard-branch-name}})"
+    configuration:
+      content: $file(dashboard.pipeline.yml)
+      env:
+        REPO: "masterdata-api-repo"
+        REPO_BRANCH: "{{deploy.parameters.masterdata-branch-name}}"
+        CF_APP_NAME: "{{deploy.parameters.masterdata-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "EA Dev Factory Mgmt Portal"
+        REGION_ID: "US South"
+      execute: true
+    services: ["masterdata-api-repo"]
+  hidden: [form, description]
+  
+demandmangement-api-build:
+  service_id: pipeline
+  parameters:
+    name: "demandmangement ({{deploy.parameters.dashboard-branch-name}})"
+    configuration:
+      content: $file(dashboard.pipeline.yml)
+      env:
+        REPO: "demandmangement-api-repo"
+        REPO_BRANCH: "{{deploy.parameters.demandmangement-branch-name}}"
+        CF_APP_NAME: "{{deploy.parameters.demandmangement-app-name}}"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "EA Dev Factory Mgmt Portal"
+        REGION_ID: "US South"
+      execute: true
+    services: ["demandmangement-api-repo"]
+  hidden: [form, description]
+
+#Deployment
+deploy:
+  schema:
+    $ref: deploy.json
+  service-category: pipeline
+  parameters:
+    selected-region: "US South"
+    selected-organization: "EA Dev Factory Mgmt Portal"
+    selected-space: "{{space}}"
+    workorder-branch-name: "master"
+    workorder-app-name: "{{name}}-workorder" 
+    permission-branch-name: "master"
+    permission-app-name: "{{name}}-permission" 
+    eaportal-branch-name: "master"
+    eaportal-app-name: "{{name}}-eaportal"  
+    masterdata-branch-name: "master"
+    masterdata-app-name: "{{name}}-masterdata"
+    demandmangement-branch-name: "master"
+    demandmangement-app-name: "{{name}}-demandmanagement"
+
