@@ -1,0 +1,14 @@
+declared-services: 
+  sample-java-cloudant-cloudantNoSQLDB: 
+        label: cloudantNoSQLDB 
+        plan: Lite
+applications:
+- path: .
+  memory: 256M
+  instances: 1
+  domain: mybluemix.net
+  name: Node-Cloudant-Demo
+  host: Node-Cloudant-Demo
+  disk_quota: 1024M
+  services:
+  - Node-Cloudant-Demo-cloudantNoSQLDB
