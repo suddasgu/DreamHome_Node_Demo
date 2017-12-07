@@ -7,8 +7,8 @@ applications:
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: Node-Cloudant-Demo
-  host: Node-Cloudant-Demo
+  name: DreamHome_Node_Demo
+  host: DreamHome_Node_Demo
   disk_quota: 1024M
   services:
   - Node-Cloudant-Demo-cloudantNoSQLDB
