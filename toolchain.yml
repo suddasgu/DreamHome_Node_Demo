@@ -13,16 +13,15 @@ dreamhome-api-repo:
     type: clone
     has_issues: true
 
-
 # Pipelines
-workorder-build:
+node_js_pipeline:
   service_id: pipeline
   parameters:
-    name: "workorder ({{deploy.parameters.workorder-branch-name}})"
+    name: "node"
     configuration:
       content: $file(ui.pipeline.yml)
       env:
-        REPO: "workorder-api-repo"
+        REPO: "DreamHome_Node_Demo"
         CF_APP_NAME: "{{deploy.parameters.workorder-app-name}}"
         REPO_BRANCH: "{{deploy.parameters.workorder-branch-name}}"
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
