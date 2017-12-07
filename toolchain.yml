@@ -1,49 +1,18 @@
 ---
-name: "EAmanagement Portal Toolchain"
-description: "With this cloud-native toolchain, you use a sample to create an online insurance store that consists of three microservices: a Catalog API, an Orders API, and a UI that calls both of the APIs. The toolchain is preconfigured for continuous delivery, source control, blue-green deployment, functional testing, issue tracking, online editing.\n\nTo get started, click **Create**."
+name: "DreamHome Portal Toolchain"
+description: "Node js api application for dream home"
 required:
  - deploy
 
 # Github repos
-workorder-api-repo:
-  service_id: hostedgit
+dreamhome-api-repo:
+  service_id: github
   parameters:
-    repo_name: "workorder-api-git"
+    repo_name: "DreamHome_Node_Demo"
     repo_url: "https://git.ng.bluemix.net/suddasgu/WorkOrderManagement"
     type: clone
     has_issues: true
 
-permission-api-repo:
-  service_id: hostedgit
-  parameters:
-    repo_name: "permission-api-git"
-    repo_url: "https://git.ng.bluemix.net/suddasgu/PermissionManagement"
-    type: clone
-    has_issues: true
-
-eaportal-ui-repo:
-  service_id: hostedgit
-  parameters:
-    repo_name: "eaportal-ui-git"
-    repo_url: "https://git.ng.bluemix.net/angsdey2/EAManagementPortal"
-    type: clone
-    has_issues: true
-
-masterdata-api-repo:
-  service_id: hostedgit
-  parameters:
-    repo_name: "masterdata-api-git"
-    repo_url: "https://git.ng.bluemix.net/suddasgu/MasterDataManagement"
-    type: clone
-    has_issues: true
-    
-demandmangement-api-repo:
-  service_id: hostedgit
-  parameters:
-    repo_name: "demandmangement-api-git"
-    repo_url: "https://git.ng.bluemix.net/pandnira/DemandManagement"
-    type: clone
-    has_issues: true
 
 # Pipelines
 workorder-build:
