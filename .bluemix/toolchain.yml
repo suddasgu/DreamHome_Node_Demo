@@ -1,0 +1,39 @@
+---
+name: "DreamHome Portal Toolchain"
+description: "Node js api application for dream home"
+required:
+ - deploy
+
+# Github repos
+dreamhome-api-repo:
+  service_id: github
+  parameters:
+    repo_name: "dreamhome-api-repo"
+    repo_url: "https://github.com/suddasgu/DreamHome_Node_Demo.git"
+    type: clone
+    has_issues: true
+
+# Pipelines
+node_js_pipeline:
+  service_id: pipeline
+  parameters:
+    name: "node"
+    configuration:
+      content: $file(ui.pipeline.yml)
+      env:
+        REPO: "DreamHome_Node_Demo"
+        CF_APP_NAME: "DreamHome_Node_Demo"
+        REPO_BRANCH: "master"
+        SPACE_NAME: "{{deploy.parameters.selected-space}}"
+        ORG_NAME: "{{deploy.parameters.selected-organization}}"
+        REGION_ID: "{{deploy.parameters.selected-region}}"
+      execute: true
+    services: ["dreamhome-api-repo"]
+  hidden: [form, description]
+ 
+#Deployment
+deploy:
+  schema:
+    $ref: deploy.json
+  service-category: pipeline
+  
