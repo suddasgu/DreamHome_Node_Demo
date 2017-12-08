@@ -19,7 +19,7 @@ Get started with this project, which is an online insurance application that con
 
 1. **To get started, click this button:**
 
-  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//git.ng.bluemix.net/suddasgu/toolchainexplore.git)
+  [![Deploy To Bluemix](./.bluemix/create_toolchain_button.png)](https://new-console.ng.bluemix.net/devops/setup/deploy/?repository=https%3A//github.com/suddasgu/DreamHome_Node_Demo.git)
 
   Clicking it will:
   * **create 4 GitHub repositories** with the required source code for all the application components;
