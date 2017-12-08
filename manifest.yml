@@ -1,7 +1,3 @@
-declared-services: 
-  sample-java-cloudant-cloudantNoSQLDB: 
-        label: cloudantNoSQLDB 
-        plan: Lite
 applications:
 - path: .
   memory: 256M
