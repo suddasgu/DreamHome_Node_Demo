@@ -19,7 +19,7 @@ node_js_pipeline:
   parameters:
     name: "node"
     configuration:
-      content: $file(ui.pipeline.yml)
+      content: $file(node-cloudant-demo.yml)
       env:
         REPO: "DreamHome_Node_Demo"
         CF_APP_NAME: "DreamHome_Node_Demo"
