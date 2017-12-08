@@ -22,7 +22,7 @@ node_js_pipeline:
       content: $file(node-cloudant-demo.yml)
       env:
         REPO: "dreamhome-api-repos"
-        CF_APP_NAME: "DreamHome_Node_Demo"
+        CF_APP_NAME: "{{deploy.parameters.app-name}}"
         REPO_BRANCH: "master"
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
