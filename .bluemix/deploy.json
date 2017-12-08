@@ -34,8 +34,7 @@
           "type": "validator",
           "url": "/devops/setup/bm-helper/helper.html"
        },
-	   {
-	   {
+	    {
           "type": "text",
           "readonly": false,
           "title": "Application Name",
