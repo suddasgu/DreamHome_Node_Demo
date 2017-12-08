@@ -10,7 +10,7 @@ dreamhome-api-repo:
   parameters:
     repo_name: "dreamhome-api-repo"
     repo_url: "https://github.com/suddasgu/DreamHome_Node_Demo.git"
-    type: clone
+    type: existing
     has_issues: true
 
 # Pipelines
