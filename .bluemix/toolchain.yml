@@ -6,7 +6,7 @@ required:
 
 # Github repos
 dreamhome-api-repo:
-  service_id: github
+  service_id: githubpublic
   parameters:
     repo_name: "dreamhome-api-repo"
     repo_url: "https://github.com/suddasgu/DreamHome_Node_Demo.git"
@@ -19,7 +19,7 @@ node_js_pipeline:
   parameters:
     name: "node"
     configuration:
-      content: $file(ui.pipeline.yml)
+      content: $file(node-cloudant-demo.yml)
       env:
         REPO: "dreamhome-api-repo"
         CF_APP_NAME: "DreamHome_Node_Demo"
