@@ -21,7 +21,7 @@ node_js_pipeline:
     configuration:
       content: $file(ui.pipeline.yml)
       env:
-        REPO: "DreamHome_Node_Demo"
+        REPO: "dreamhome-api-repo"
         CF_APP_NAME: "DreamHome_Node_Demo"
         REPO_BRANCH: "master"
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
