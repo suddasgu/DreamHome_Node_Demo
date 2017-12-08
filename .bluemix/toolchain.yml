@@ -5,10 +5,10 @@ required:
  - deploy
 
 # Github repos
-dreamhome-api-repos:
+dreamhome-api-repository:
   service_id: githubpublic
   parameters:
-    repo_name: "dreamhome-api-repos"
+    repo_name: "dreamhome-api-repository"
     repo_url: "https://github.com/suddasgu/DreamHome_Node_Demo.git"
     type: clone
     has_issues: true
@@ -21,14 +21,14 @@ node_js_pipeline:
     configuration:
       content: $file(node-cloudant-demo.yml)
       env:
-        REPO: "dreamhome-api-repos"
+        REPO: "dreamhome-api-repository"
         CF_APP_NAME: "{{deploy.parameters.app-name}}"
         REPO_BRANCH: "master"
         SPACE_NAME: "{{deploy.parameters.selected-space}}"
         ORG_NAME: "{{deploy.parameters.selected-organization}}"
         REGION_ID: "{{deploy.parameters.selected-region}}"
       execute: true
-    services: ["dreamhome-api-repos"]
+    services: ["dreamhome-api-repository"]
   hidden: [form, description]
  
 #Deployment
