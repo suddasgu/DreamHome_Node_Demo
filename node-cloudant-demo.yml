@@ -53,9 +53,9 @@ stages:
     type: deployer
     deploy_permission: DEV_IN_SPACE
     target:
-      region_id: ibm:yp:us-south
-      organization: angsdey2@in.ibm.com
-      space: dev
+      region_id: ${REGION_ID}
+      organization: ${ORG_NAME}
+      space: ${SPACE_NAME}
       application: Node-Cloudant-Demo
     script: |-
       #!/bin/bash
@@ -63,8 +63,3 @@ stages:
 
       # View logs
       # cf logs "${CF_APP}" --recent
-hooks:
-- enabled: true
-  label: null
-  ssl_enabled: false
-  url: https://devops-api.ng.bluemix.net/v1/messaging/webhook/publish
