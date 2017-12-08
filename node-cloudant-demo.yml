@@ -59,6 +59,7 @@ stages:
       application: DreamHome_Node_Demo
     script: |-
       #!/bin/bash
+      cf create-service cloudantNoSQLDB Lite Node-Cloudant-Demo-cloudantNoSQLDB
       cf push "${CF_APP}"
 
       # View logs
