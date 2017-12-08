@@ -2,7 +2,7 @@
 stages:
 - name: Build Stage
   inputs:
-  - url: https://git.ng.bluemix.net/angsdey2/Node-Cloudant-Demo.git
+  - url: https://github.com/suddasgu/DreamHome_Node_Demo.git
     type: git
     branch: master
     dir_name: null
