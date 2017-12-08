@@ -9,7 +9,7 @@ dreamhome-api-repo:
   service_id: github
   parameters:
     repo_name: "dreamhome-api-repo"
-    repo_url: "https://git.ng.bluemix.net/suddasgu/WorkOrderManagement"
+    repo_url: "https://github.com/suddasgu/DreamHome_Node_Demo.git"
     type: clone
     has_issues: true
 
