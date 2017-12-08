@@ -2,8 +2,7 @@
 stages:
 - name: Build Stage
   inputs:
-  - url: https://github.com/suddasgu/DreamHome_Node_Demo.git
-    type: git
+  - type: git
     branch: master
     service: ${REPO}	
     dir_name: null
