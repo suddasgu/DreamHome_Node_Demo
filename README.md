@@ -36,7 +36,6 @@ The toolchain is preconfigured for:
 - issue tracking
 - source control
 - continuous delivery and integration (CI/CD)
-- unit and code coverage testing
 - blue-green deployment
 
 ---
