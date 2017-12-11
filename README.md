@@ -1,15 +1,19 @@
-# Cloud Insurance Co. - Toolchain
+# Cloud Node js Demo Part 1 
 
-This toolchain deploys the [Cloud Insurance Co.](https://github.com/IBM-Bluemix/cloudco-insurance) project.
+Pre-requisite  for this toolchain creation 
 
-Get started with this project, which is an online insurance application that consists of microservices:
+* Create your bluemix account , You need to have bluemix organization 
+   url :http://ng.bluemix.net
+* Create a github account 
+   url : https://github.com
+   
+Once it is done, Now you have to press the following button , It will take you  to inside IBM Cloud , Now you have selected the respective Organization , Region Id ,space  , application name.
 
-* [insurance-catalog][catalog_github_url] - An API to retrieve and update a catalog of insurance policies
-* [insurance-orders][orders_github_url] - An API to retrieve and update a list of insurance policy orders made by customers
-* [insurance-bot][bot_github_url] - UI that provides a chat bot interface for users to query their health benefits and file claims.
-* [insurance-bot-dashboard][dashboard_github_url] - A user interface showing an history of the bot chats for further analysis.
-* [insurance-bot-ios][ios_github_url] - An iOS application for the chat bot.
-* [insurance-bot-android][android_github_url] - An Android application for the chat bot.
+Once the application get deployed you have to check the deployed delivery pipeline and through this following url you can check the application 
+
+
+You have to also analyze the node js code from the git hub 
+
 
 ## Create the toolchain
 
@@ -41,8 +45,6 @@ The toolchain is preconfigured for:
 
 * Bluemix DevOps Services: https://new-console.ng.bluemix.net/devops
 * Documentation on [Bluemix Toolchains][toolchains_overview_url]
-* InterConnect 2016 [video recording][toolchains_interconnect_video_url]
-* [IBM Bluemix Garage Method][garage_method_url]
 
 <!--Links-->
 [bot_github_url]: https://github.com/IBM-Bluemix/insurance-bot
