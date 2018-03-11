@@ -79,6 +79,10 @@ function uploadFile(){
 	return false;
 }
 
+function resetUploadForm(){
+	document.forms['fileUploadForm'].reset()
+}
+
 function fetchUser() {
 	//location.reload();
 	var xhttp = new XMLHttpRequest();
