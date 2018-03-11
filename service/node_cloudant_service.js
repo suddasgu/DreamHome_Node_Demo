@@ -2,7 +2,7 @@ var express  = require('express');
 var request = require('request'); 
 var multer = require ('multer');
 var fs = require('fs');
-var open = require('open');
+var opn = require('opn');
 var moment = require('moment');
 
 //Cloudant documents
@@ -142,7 +142,7 @@ exports.searchFiles = function(res, details, callback){
 exports.downloadFiles = function(res, details, callback){
 	console.log(details);
 	console.log(fileupload.config.url);
-	open(fileupload.config.url+'/dhfi_references/'+details.id+'/'+details.fileName);
+	opn(fileupload.config.url+'/dhfi_references/'+details.id+'/'+details.fileName);
 	populateSuccessResponse("Successfully downloaded document","Successfully downloaded document", function(resp){
 		callback(resp);
 	});
