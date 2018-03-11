@@ -34,7 +34,7 @@ function initDBConnection() {
         // Bluemix service.
         // url will be in this format: https://username:password@xxxxxxxxx-bluemix.cloudant.com
         //dbCredentials.url = getDBCredentialsUrl(fs.readFileSync("vcap-local.json", "utf-8"));
-        dbCredentials.url = "https://57fb1247-4c20-4fb1-8a8b-67e114ffae9e-bluemix:23fd4b61150f8629b0b6f2a798b28709bb8ef8c95b4fedcf9f7ab6343c07da4a@57fb1247-4c20-4fb1-8a8b-67e114ffae9e-bluemix.cloudant.com";
+        dbCredentials.url = "https://65340d39-d131-4ed9-a7b6-0fc70df18ea4-bluemix:fa59d2d40ea16535a5e7b19b2ea4854f7f1a1075ff76bca2ef20efb979380686@65340d39-d131-4ed9-a7b6-0fc70df18ea4-bluemix.cloudant.com";
     }
 
     cloudant = require('cloudant')(dbCredentials.url);

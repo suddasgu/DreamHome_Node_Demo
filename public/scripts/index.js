@@ -196,7 +196,7 @@ function searchFiles() {
 					cell3.innerHTML = file.creationDate;
 					/* cell4.innerHTML = ''file.newFileName; */
 					//cell4.innerHTML = '<a href="#" onclick="downloadFiles();" title="My link title">'+file.newFileName+'</a>';
-					cell4.innerHTML = '<a href=# onclick="return downloadFiles(\'' + file._id +'\',\'' + file.newFileName  +'\')">'+file.newFileName+'</a>';
+					cell4.innerHTML = '<a href=# onclick="return downloadFiles(\'' +searchFilesResp.respBody.fileDownloadContextUrl + '\',\''+ file._id +'\',\'' + file.newFileName  +'\')">'+file.newFileName+'</a>';
 				}
 				var header = searchTable.createTHead();
 				var row = header.insertRow(0);
@@ -223,22 +223,6 @@ function searchFiles() {
 	
 }
 
-function downloadFiles(id, fileName) {
-	var requestJson = {};
-	requestJson.id = id;
-	requestJson.fileName = fileName;
-    var xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "api/downloadFiles", true);
-	xhttp.onreadystatechange = function(){
-		if(xhttp.readyState == 4){
-			
-			if(xhttp.status == 200){
-				alert("Files downloaded successfully");
-			}else{
-				alert("Failed to download file");
-			}
-		}
-	};
-    xhttp.setRequestHeader("Content-type", "application/json");
-    xhttp.send(JSON.stringify(requestJson));
+function downloadFiles(fileDownloadContextUrl, id, fileName) {
+	window.open(fileDownloadContextUrl+'/'+id+'/'+fileName);
 }

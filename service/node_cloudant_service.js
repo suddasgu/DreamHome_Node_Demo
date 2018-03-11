@@ -2,7 +2,6 @@ var express  = require('express');
 var request = require('request'); 
 var multer = require ('multer');
 var fs = require('fs');
-var opn = require('opn');
 var moment = require('moment');
 
 //Cloudant documents
@@ -57,7 +56,7 @@ exports.uploadFile = function(res, fileDetails, body, callback){
 	details.title = body.title;
 	details.description = body.description;
 	details.fileToUpload = body.fileToUpload;
-	details.creationDate = new Date(new Date().getTime() + 10000);
+	details.creationDate = moment(new Date().toISOString()).format('DD-MMM-YYYY HH:mm:ss');
 	details.originalFileName = fileDetails.originalname;
 	
 	var arr = fileDetails.originalname.split(".");
@@ -127,7 +126,9 @@ exports.searchFiles = function(res, details, callback){
 			json: true, 
 			body: cloudantquery
 	  }, function (error, response, body) {
+		  console.log(body);
 			if (!error && response.statusCode == 200) {
+				body.fileDownloadContextUrl = fileupload.config.url+'/dhfi_references';
 				populateSuccessResponse(body,"Successfully fetched documents", function(resp){
 					callback(resp);
 				});
@@ -137,15 +138,6 @@ exports.searchFiles = function(res, details, callback){
 				});
 			}
 	  });
-}
-
-exports.downloadFiles = function(res, details, callback){
-	console.log(details);
-	console.log(fileupload.config.url);
-	opn(fileupload.config.url+'/dhfi_references/'+details.id+'/'+details.fileName);
-	populateSuccessResponse("Successfully downloaded document","Successfully downloaded document", function(resp){
-		callback(resp);
-	});
 }
 
 
