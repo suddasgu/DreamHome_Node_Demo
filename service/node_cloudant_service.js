@@ -141,6 +141,7 @@ exports.searchFiles = function(res, details, callback){
 
 exports.downloadFiles = function(res, details, callback){
 	console.log(details);
+	console.log(fileupload.config.url);
 	open(fileupload.config.url+'/dhfi_references/'+details.id+'/'+details.fileName);
 	populateSuccessResponse("Successfully downloaded document","Successfully downloaded document", function(resp){
 		callback(resp);
