@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DreamHome Node Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+
+  <body ng-app = "myApp">
+  
+	<table style= "margin-top: 100">
+		
+      <tr style= "width:100%; ">
+        <td style="text-align:center;">
+			<h1>DreamHome Node Demo</h1>
+        </td>
+      </tr>
+    </table>
+    <table border="3" value="TEST">
+		
+      <tr style= "width:100%;">
+        <td>
+			<form  id="fileUploadForm" onsubmit="return updateUserInfo()">
+			  First Name: <input placeholder="First Name" type='text' name='firstName' id='firstName'  maxlength="50" />
+			  Middle Name: <input placeholder="Middle Name" type='text' name='middleName' id='middleName'  maxlength="50" />
+			  Last Name: <input placeholder="Last Name" type='text' name='lastName' id='lastName'  maxlength="50" /></br>
+			  User Email: <input placeholder="User Email" type='text' name='userEmail' id='userEmail'  maxlength="50" />
+			  Account Type: <select placeholder="Account Type" type='text' name='accType' id='accType'  maxlength="50">
+				  <option value=""></option>
+				  <option value="Member">Member</option>
+				  <option value="Employee">Employee</option>
+			  </select>
+			  <input type="hidden" name="_id" id="_id">
+			  <input type="hidden" name="_rev" id="_rev">
+			  <input type="hidden" name="creationDate" id="creationDate">
+			  <input type="hidden" name="originalFileName" id="originalFileName">
+			  <input type="hidden" name="profileImageName" id="profileImageName">
+			  </br>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+			  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+			  <button  style="text-align:center;" type="submit" >Save Info</button> 
+		  </form> 
+        </td>
+      </tr>
+	  <tr style= "width:100%; ">
+        <td style="text-align:center;">
+			<button class="addBtn" onclick="location.href='manageUser.html'">Back</button>
+			<button class="addBtn" id="reset">Reset</button>
+        </td>
+      </tr>
+    </table>
+	<script type="text/javascript" src="./scripts/index.js"></script>
+	<script type="text/javascript">
+	function fillForm() {
+            document.getElementById("firstName").value = window.sessionStorage.getItem('firstName');
+			if(window.sessionStorage.getItem('middleName') != 'undefined'){
+				document.getElementById("middleName").value = window.sessionStorage.getItem('middleName');
+			}
+            document.getElementById("lastName").value = window.sessionStorage.getItem('lastName');
+            document.getElementById("userEmail").value = window.sessionStorage.getItem('userEmail');
+            document.getElementById("accType").value = window.sessionStorage.getItem('accType');
+            document.getElementById("_id").value = window.sessionStorage.getItem('_id');
+            document.getElementById("_rev").value = window.sessionStorage.getItem('_rev');
+            document.getElementById("creationDate").value = window.sessionStorage.getItem('creationDate');
+            document.getElementById("originalFileName").value = window.sessionStorage.getItem('originalFileName');
+            document.getElementById("profileImageName").value = window.sessionStorage.getItem('profileImageName');
+    }
+	window.onload =  fillForm();
+	document.getElementById("reset").addEventListener("click", function() {
+		editUserInfo( document.getElementById("_id").value, document.getElementById("_rev").value);
+	}, false);
+	</script>
+	 
+  </body>
+
+</html>

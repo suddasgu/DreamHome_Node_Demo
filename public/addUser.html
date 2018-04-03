@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DreamHome Node Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+
+  <body ng-app = "myApp">
+  
+	<table style= "margin-top: 100">
+		
+      <tr style= "width:100%; ">
+        <td style="text-align:center;">
+			<h1>DreamHome Node Demo</h1>
+        </td>
+      </tr>
+    </table>
+    <table border="3" value="TEST">
+		
+      <tr style= "width:100%;">
+        <td>
+			<form  id="fileUploadForm" onsubmit="return addUserInfo()">
+			  First Name: <input placeholder="First Name" type='text' name='firstName' id='firstName'  maxlength="50" />
+			  Middle Name: <input placeholder="Middle Name" type='text' name='middleName' id='middleName'  maxlength="50" />
+			  Last Name: <input placeholder="Last Name" type='text' name='lastName' id='lastName'  maxlength="50" /></br>
+			  User Email: <input placeholder="User Email" type='text' name='userEmail' id='userEmail'  maxlength="50" />
+			  Account Type: <select placeholder="Account Type" type='text' name='accType' id='accType'  maxlength="50">
+				  <option value=""></option>
+				  <option value="Member">Member</option>
+				  <option value="Employee">Employee</option>
+			  </select>
+			  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+			  ID Photo:<input type="file" id="imageUpload" name="imageUpload">
+			  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+			  <button  type="submit" class="addBtn" >Add User</button> 
+		  </form> 
+        </td>
+      </tr>
+	  <tr style= "width:100%; ">
+        <td style="text-align:center;">
+			<button class="addBtn" onclick="location.href='index.html'">Back</button>
+			<button class="addBtn" onclick="return resetUploadForm()">Reset</button>
+        </td>
+      </tr>
+    </table>
+	<script type="text/javascript" src="./scripts/index.js"></script>
+	 
+  </body>
+
+</html>

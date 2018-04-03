@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>DreamHome Node Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/style.css">
+  </head>
+
+  <body ng-app = "myApp">
+  
+	<table style= "margin-top: 100">
+		
+      <tr style= "width:100%; ">
+        <td style="text-align:center;">
+			<h1>DreamHome Node Demo</h1>
+        </td>
+      </tr>
+    </table>
+    <table border="3" value="TEST">
+		
+      <tr style= "width:100%;">
+        <td>
+			<form  id="fileUploadForm" onsubmit="return updateImage()">
+			<input type="hidden" name="_id" id="_id">
+			<input type="hidden" name="_rev" id="_rev">
+			<input type="hidden" name="firstName" id="firstName">
+			<input type="hidden" name="lastName" id="lastName">
+			 User Image:<input type="file" id="changeUserImage" name="changeUserImage">
+			  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+			  <button  type="submit" class="addBtn" >Upload File</button> 
+		  </form> 
+        </td>
+      </tr>
+	  <tr style= "width:100%; ">
+        <td style="text-align:center;">
+			<button class="addBtn" onclick="location.href='index.html'">Back</button>
+			<button class="addBtn" onclick="return resetUploadForm()">Reset</button>
+        </td>
+      </tr>
+    </table>
+	<script type="text/javascript" src="./scripts/index.js"></script>
+	 <script type="text/javascript">
+	function fillForm() {
+            document.getElementById("_id").value = window.sessionStorage.getItem('_id');
+            document.getElementById("_rev").value = window.sessionStorage.getItem('_rev');
+            document.getElementById("firstName").value = window.sessionStorage.getItem('firstName');
+            document.getElementById("lastName").value = window.sessionStorage.getItem('lastName');
+  }
+	window.onload =  fillForm();
+	</script>
+  </body>
+
+</html>

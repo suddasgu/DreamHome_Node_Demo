@@ -22,6 +22,9 @@ a:hover {
 input {
 	margin: 2%;
 }
+select {
+	margin: 2%;
+}
 
 .addBtn {
 	margin: 2%;
@@ -38,7 +41,7 @@ h1 {
 
 table {
 	table-layout: fixed;
-	width: 50%;
+	width: 75%;
 	margin-left: auto;
     margin-right: auto;
 	word-wrap: break-word;

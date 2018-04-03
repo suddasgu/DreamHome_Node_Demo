@@ -78,5 +78,58 @@ module.exports = function(app) {
                 res.end();
             });            
     });
+	
+	
+	
+	app.post('/api/addUserInfo', upload.single('imageUpload'), function (req, res, next) {
+		
+		console.log(req.file);
+		services.addUserInfo(res, req.file , req.body, function (found) {
+			res.json(found);    
+			res.end();
+		}); 
+		
+    });
+	
+	app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.post('/api/searchUsers', function(req , res){
+           var details = req.body;
+            services.searchUsers(res, details , function (found) {
+                res.json(found);    
+                res.end();
+            });            
+    });
+	
+	app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.post('/api/fetchUserDetailById', function(req , res){
+           var details = req.body;
+            services.fetchUserDetailById(res, details , function (found) {
+                res.json(found);    
+                res.end();
+            });            
+    });
+	
+	
+	app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.post('/api/updateUserInfo', function(req , res){
+           var details = req.body;
+            services.updateUserInfo(res, details , function (found) {
+                res.json(found);    
+                res.end();
+            });            
+    });
+	
+	app.post('/api/updateImage', upload.single('changeUserImage'), function (req, res, next) {
+		
+		console.log(req.file);
+		services.updateImage(res, req.file , req.body, function (found) {
+			res.json(found);    
+			res.end();
+		}); 
+		
+    });
 
 }
